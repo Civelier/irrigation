@@ -45,20 +45,23 @@ void loop()
 		
 		if (Pump->bIsOn)
 		{
-			if (FrontContainer->GetVolume() < BackContainer->GetVolume() - THRESHOLD)
+			if (FrontContainer->GetVolume() < BackContainer->GetVolume() - THRESHOLD / 2)
 			{
 				Pump->TurnOff();
+				delay(MINIMUM_PUMP_TIME);
 			}
 		}
 		else
 		{	
-			if (FrontContainer->GetVolume() - THRESHOLD > BackContainer->GetVolume())
+			if (FrontContainer->GetVolume() - THRESHOLD / 2 > BackContainer->GetVolume())
 			{
 				Pump->TurnOn();
+				delay(MINIMUM_PUMP_TIME);
 			}
-			if (BackContainer->GetVolume() < THRESHOLD)
+			if (BackContainer->GetVolume() < MINIMUM_LEVEL)
 			{
 				Pump->TurnOn();
+				delay(MINIMUM_PUMP_TIME);
 			}
 		}
 		

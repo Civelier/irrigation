@@ -10,6 +10,7 @@
 
 //user variables
 #define THRESHOLD 1 //Liters
+#define MINIMUM_LEVEL 3 //Liters
 
 #define NANO
 
@@ -18,12 +19,17 @@
 
 
 #ifdef DEBUG_LEVEL
+	
+	#define MINIMUM_PUMP_TIME 1000 // Milliseconds
+
 	#define DebugWrite(text, lvl)\
 	if (DEBUG_LEVEL <= lvl) Serial.print(text)
 		
 	#define DebugWriteLine(text, lvl)\
 	if (DEBUG_LEVEL <= lvl) Serial.println(text)
 #else
+	#define MINIMUM_PUMP_TIME 10000 // Milliseconds
+	
 	#define DebugWrite(text, lvl)\
 	if (false)
 		
