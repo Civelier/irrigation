@@ -5,7 +5,6 @@
  *  Author: civel
  */ 
 
-
 #ifndef DEFINES_H_
 #define DEFINES_H_
 
